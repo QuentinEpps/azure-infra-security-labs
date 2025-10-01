@@ -1,25 +1,31 @@
 # 🧪 Lab 4: Implement Identity and Access Management
 
-## 📘 Objectives
-- Create Azure AD users and groups
-- Assign RBAC roles
-- Use managed identities
+## 🎯 Objectives
+Use Azure AD and RBAC to secure resources. Enable managed identities.
+
+## 🧱 Architecture Overview
+![Identity Architecture](images/lab4-identity-architecture.png)
 
 ## ✅ Prerequisites
 - Azure subscription
 - Azure AD access
 
-## 🖥️ Azure Portal Steps
-1. Create users and groups in Azure AD
-2. Assign roles to users/groups
-3. Enable managed identity on VM
-4. Grant access to Storage Account
+## 🖥️ Step-by-Step Instructions
 
-## 💻 Azure CLI Steps
+### 1. Create Azure AD User
 ```bash
-az ad user create --display-name "Lab User" --user-principal-name labuser@yourdomain.onmicrosoft.com --password "YourP@ssword123"
-az role assignment create --assignee labuser@yourdomain.onmicrosoft.com --role "Reader" --scope /subscriptions/<subscriptionId>
+az ad user create --display-name "Lab User" --user-principal-name labuser@domain.onmicrosoft.com --password "YourP@ssword123"
 ```
 
+### 2. Assign Role
+```bash
+az role assignment create --assignee labuser@domain.onmicrosoft.com --role "Reader" --scope /subscriptions/<subId>
+```
+**Why:** RBAC controls access to resources.
+
+## 🧠 Real-World Application
+- Grant least privilege access to teams
+- Use managed identities for secure automation
+
 ## 📝 Notes
-- Document role assignments and identity usage
+- Document role assignments and test access

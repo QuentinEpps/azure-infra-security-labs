@@ -1,28 +1,32 @@
 # 🧪 Lab 3: Manage Azure Storage (Blob, File, Lifecycle)
 
-## 📘 Objectives
-- Create Storage Account
-- Configure Blob and File storage
-- Set access levels and lifecycle rules
+## 🎯 Objectives
+Create and manage storage accounts, blob containers, and file shares. Implement lifecycle rules.
+
+## 🧱 Architecture Overview
+![Storage Architecture](images/lab3-storage-architecture.png)
 
 ## ✅ Prerequisites
 - Azure subscription
 - Azure CLI installed
 
-## 🖥️ Azure Portal Steps
-1. Create Storage Account `storagelab`
-2. Create Blob container and upload files
-3. Create File share and test access
-4. Configure lifecycle rules
-5. Generate SAS token
+## 🖥️ Step-by-Step Instructions
 
-## 💻 Azure CLI Steps
+### 1. Create Storage Account
 ```bash
-az group create --name rg-storage-lab --location eastus
-az storage account create --name storagelab$RANDOM --resource-group rg-storage-lab --location eastus --sku Standard_LRS
-az storage container create --name labcontainer --account-name <yourStorageAccountName> --auth-mode login
-az storage blob upload --account-name <yourStorageAccountName> --container-name labcontainer --name sample.txt --file ./sample.txt --auth-mode login
+az storage account create   --name storagelab$RANDOM   --resource-group rg-storage-lab   --location eastus   --sku Standard_LRS
+```
+**Why:** Centralized storage for apps, logs, backups.
+
+### 2. Create Blob Container and Upload File
+```bash
+az storage container create --name labcontainer --account-name <name> --auth-mode login
+az storage blob upload --account-name <name> --container-name labcontainer --name sample.txt --file ./sample.txt --auth-mode login
 ```
 
+## 🧠 Real-World Application
+- Store app logs, backups, and static content
+- Use lifecycle rules to reduce costs
+
 ## 📝 Notes
-- Document access levels and lifecycle rules
+- Test access levels and SAS tokens
